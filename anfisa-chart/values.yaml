@@ -1,0 +1,40 @@
+anfisa:
+  name: anfisa-v6
+
+image:
+  name: image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-v6
+  tag: latest
+  pullPolicy: IfNotPresent
+  replicas: 1
+# annotations: {}
+
+# podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+
+logLevel: info
+logFormat: json
+
+group: app
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+  protocol: TCP
+  
+volume:
+  name: anfisa-storage
+  kind: PersistentVolumeClaim
+  mountPath: /var/lib/anfisaql/data
+  pvc:
+    name: anfisa-persistent-volume-claim
+    accessMode: ReadWriteOnce
+    storage: 4Gi
+config:
+  name: anfisa-config
+  data:
+    - key: key
+      value: value
