@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: anfisa-v6
+  name: anfisa-test
 data:
-  config.json: |
+  anfisa.json: |
     {
       "file-path-def": {"WORK": "/anfisa/a-setup"},
       "host": "0.0.0.0",
@@ -89,15 +89,3 @@ data:
         }
       }
     }
-
-
-# apiVersion: v1
-# kind: ConfigMap
-# metadata:
-#   name: {{ .Values.anfisa.config.name }}
-#   labels:
-#     group: {{ .Values.anfisa.group }}
-# data: 
-# {{- range .Values.anfisa.config.data }}
-#   {{ .key }}: {{ .value }}
-# {{- end}}

@@ -1,9 +1,9 @@
 apiVersion: v2
 name: anfisa
 description: Anfisa Helm chart for Kubernetes
-version: 1
+version: v1
 type: application
 maintainers:
   - name: Evgeniy Abrosin
     email: evgeniy.abrosin@quantori.com
-appVersion: 6
+appVersion: v6
