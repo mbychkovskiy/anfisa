@@ -1,0 +1,10 @@
+apiVersion: v1
+appVersion: 0.20.1
+description: Apache Druid is a high performance analytics data store for event-driven data.
+maintainers:
+  - name: Evgeniy Abrosin
+    email: evgeniy.abrosin@quantori.com
+name: Anfisa and druid
+version: 0.3.12
+home: http://druid.io/
+icon: http://druid.io/img/druid_nav.png

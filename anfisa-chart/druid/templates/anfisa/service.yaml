@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: anfisa-test
+  name: anfisa-v6
   labels:
-    app: anfisa-test
+    app: anfisa-v6
   
 spec:
   type: ClusterIP
@@ -13,5 +13,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: anfisa-test
+    app: anfisa-v6
   sessionAffinity: None

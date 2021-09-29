@@ -1,0 +1,12 @@
+dependencies:
+- name: zookeeper
+  repository: https://charts.bitnami.com/bitnami
+  version: 6.7.2
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.4.0
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.13.0
+digest: sha256:9f40f1ab38082b8093e7e2ea822ea37fab9847c56cfa6e109db4b68c76604f97
+generated: "2021-05-04T15:10:42.9123049+06:00"
