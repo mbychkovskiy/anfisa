@@ -20,12 +20,14 @@ oc login --token=< token > --server=https://c107-e.us-south.containers.cloud.ibm
 
 Try to deploy
 ```
+#Clone this repo
+git clone -b test https://github.com/ForomePlatform/anfisa.git
 # Choose the project
-oc project asset-forome-dev
+oc project test
 # Update helm requirements
 helm dependency update
 # first deploy
-helm install druid .
+helm install druid -n test --debug --disable-openapi-validation .
 # or upgrade if allready deployed
 helm upgrade druid .
 ```
