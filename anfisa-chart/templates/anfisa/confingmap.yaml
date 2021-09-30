@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: anfisa-v6
+  name: anfisa-test
 data:
   anfisa.json: |
     {

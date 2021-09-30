@@ -4,10 +4,10 @@ metadata:
   name: asset-forome-pvc-test
   namespace: test
   labels:
-    app.kubernetes.io/component: anfisa-v6
-    app.kubernetes.io/instance: anfisa-v6
-    app.kubernetes.io/name: anfisa-v6
-    app: anfisa-v6
+    app.kubernetes.io/component: anfisa-test
+    app.kubernetes.io/instance: anfisa-test
+    app.kubernetes.io/name: anfisa-test
+    app: anfisa-test
 spec:
   accessModes:
     - ReadWriteOnce

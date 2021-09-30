@@ -112,3 +112,12 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000660000
+        runAsGroup: 1000
+
+
+#      securityContext:
+#        seLinuxOptions:
+#        level: 's0:c25,c20'

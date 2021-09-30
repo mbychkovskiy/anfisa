@@ -111,3 +111,8 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
+
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000660000
+        runAsGroup: 1000

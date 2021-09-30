@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-    name: anfisa-v6
+    name: anfisa-test
 spec:
   runPolicy: Serial
   source:
@@ -17,4 +17,4 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: "anfisa-v6:latest"
+      name: "anfisa-test:latest"
