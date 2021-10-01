@@ -170,3 +170,4 @@ spec:
         requests:
           storage: "{{ .Values.middleManager.persistence.size }}"
   {{ end }}
+
