@@ -47,7 +47,7 @@ spec:
           claimName: s3pvc
       - name: anfisa-workdir
         persistentVolumeClaim:
-          claimName: asset-forome-pvc-dev
+          claimName: asset-forome-pvc-test
       - name: anfisa-config
         configMap:
           name: anfisa-test
