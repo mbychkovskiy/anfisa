@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: anfisa6
-          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-test"
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-test:latest"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
