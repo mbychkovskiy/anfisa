@@ -17,9 +17,15 @@ spec:
       labels:
         app: anfisa-test
     spec:
+
+      securityContext:
+        enabled: true
+        fsGroup: 1000
+        runAsUser: 0
+
       containers:
-        - name: anfisa6
-          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-test:latest"
+        - name: anfisa-test
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-v6"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
