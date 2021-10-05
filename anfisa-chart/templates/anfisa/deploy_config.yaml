@@ -17,8 +17,8 @@ spec:
         deploymentconfig: anfisa-test
     spec:
       containers:
-        - name: anfisa6
-          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-test"
+        - name: anfisa-test
+          image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
@@ -33,7 +33,7 @@ spec:
       - anfisa6
       from:
         kind: ImageStreamTag
-        name: image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-test:latest
+        name: image-registry.openshift-image-registry.svc:5000/test/anfisa-test:latest
     type: ImageChange
   strategy:
     type: Rolling

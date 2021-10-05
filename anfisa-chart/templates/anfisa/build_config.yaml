@@ -7,8 +7,8 @@ spec:
   source:
     type: Git
     git:
-      uri: https://github.com/ForomePlatform/anfisa
-      ref: v.0.6.x    
+      uri: https://github.com/sveshnikov-artyom/anfisa
+      ref: v.0.6.x-clean-code
   strategy:
     type: Docker
     dockerStrategy:
