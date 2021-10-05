@@ -16,4 +16,4 @@ RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/sites-available/defau
 
 
 EXPOSE 80
-ENTRYPOINT [ "/usr/bin/entrypoint.sh", "/usr/local/bin/supervisord"]
+ENTRYPOINT ["/bin/sh", "/usr/bin/entrypoint.sh", "/usr/local/bin/supervisord"]
