@@ -30,10 +30,10 @@ spec:
           terminationMessagePolicy: File
           tty: true
           stdin: true
-          command:
-            - "entrypoint"
-          args:
-            - "/usr/local/bin/supervisord"
+#          command:
+#            - "entrypoint"
+#          args:
+#            - "/usr/bin/entrypoint.sh"
           serviceAccount: default
           volumeMounts:
           - name: data2
