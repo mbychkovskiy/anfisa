@@ -5,7 +5,8 @@ RUN bash -c 'mkdir -p /anfisa/anfisa && mkdir -p /anfisa/a-setup/ && mkdir -p /d
 
 COPY . /anfisa/anfisa/
 RUN cd /anfisa/anfisa/ && pip3 install -r requirements.txt && pip3 install supervisor && pip3 install -e git+https://github.com/ForomePlatform/forome_misc_tools.git#egg=forome-tools 
-RUN cd /anfisa/anfisa/setup && mv anfisa.json.docker /anfisa/anfisa.json && mv entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
+#RUN cd /anfisa/anfisa/setup && mv anfisa.json.docker /anfisa/anfisa.json && mv entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
+RUN cd /anfisa/anfisa/setup && mv anfisa.json.docker /anfisa/anfisa.json && mv entrypoint.sh /anfisa/entrypoint.sh && chmod +x /anfisa/entrypoint.sh
 ENV ANFISA_HOME=/anfisa/anfisa
 ENV ANFISA_WORK=/anfisa/a-setup
 ENV ANFISA_ROOT=/anfisa
@@ -16,8 +17,8 @@ RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/sites-available/defau
 
 
 EXPOSE 80
-ENTRYPOINT ["bash", "ls"]
-#ENTRYPOINT ["bash", "/usr/bin/entrypoint.sh"]
+#ENTRYPOINT ["bash", "ls"]
+ENTRYPOINT ["bash", "/anfisa/entrypoint.sh"]
 #ENTRYPOINT ["/bin/bash/"]
 #CMD ["ls"]
 #CMD ["/usr/bin/entrypoint.sh"]
