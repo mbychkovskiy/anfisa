@@ -13,7 +13,7 @@ ENV ANFISA_HTML_BASE=/anfisa
 RUN apt-get update && apt-get install -y nginx
 RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/sites-available/default && mv supervisord.conf /etc/supervisord.conf && mv uwsgi.ini /anfisa/uwsgi.ini
 
-ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh", "/usr/local/bin/supervisord"]
 EXPOSE 80
 
 #CMD ["ls"]
