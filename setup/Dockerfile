@@ -2,10 +2,10 @@ FROM python:3.7
 WORKDIR /anfisa
 RUN bash -c 'mkdir -p /anfisa/anfisa && mkdir -p /anfisa/a-setup/ && mkdir -p /data/ && mkdir -p /anfisa/anfisa/setup'
 
-COPY . /anfisa/anfisa/setup/
+COPY ./ /anfisa/anfisa/setup/
 RUN cd /anfisa/anfisa/setup/ && pip3 install -r requirements.txt && pip3 install supervisor && pip3 install -e git+https://github.com/ForomePlatform/forome_misc_tools.git#egg=forome-tools
 #RUN cd /anfisa/anfisa/setup && mv anfisa.json.docker /anfisa/anfisa.json && mv entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
-RUN cd /anfisa/anfisa/setup && mv anfisa.json.docker /anfisa/anfisa.json && mv entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
+RUN cd /anfisa/anfisa/setup && mv /anfisa/anfisa/setup/anfisa.json.docker /anfisa/anfisa.json && mv /anfisa/anfisa/setup/entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
 ENV ANFISA_HOME=/anfisa/anfisa
 ENV ANFISA_WORK=/anfisa/a-setup
 ENV ANFISA_ROOT=/anfisa
