@@ -16,5 +16,5 @@ RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/sites-available/defau
 
 
 EXPOSE 80
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/sh"]
 CMD ["/usr/bin/entrypoint.sh"]
