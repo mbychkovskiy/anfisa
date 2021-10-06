@@ -2,7 +2,7 @@ FROM python:3.7
 WORKDIR /anfisa
 RUN bash -c 'mkdir -p /anfisa/anfisa && mkdir -p /anfisa/a-setup/ && mkdir -p /data/ && mkdir -p /anfisa/anfisa/setup'
 
-COPY /anfisa/setup/ /anfisa/anfisa/setup/
+COPY ./setup/ /anfisa/anfisa/setup/
 #RUN cd /anfisa/anfisa/setup/ && pip3 install -r requirements.txt && pip3 install supervisor && pip3 install -e git+https://github.com/ForomePlatform/forome_misc_tools.git#egg=forome-tools
 RUN mv /anfisa/anfisa/setup/anfisa.json.docker /anfisa/anfisa.json && mv /anfisa/anfisa/setup/entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
 
