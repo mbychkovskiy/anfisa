@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y nginx
 RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/sites-available/default && mv supervisord.conf /etc/supervisord.conf && mv uwsgi.ini /anfisa/uwsgi.ini
 
 EXPOSE 80
-ENTRYPOINT ["ls"]
+CMD ["ls"]
 
 #CMD ["/usr/bin/entrypoint.sh"]
 #ENTRYPOINT ["bash", "ls"]
