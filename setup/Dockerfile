@@ -10,6 +10,9 @@ ENV ANFISA_WORK=/anfisa/a-setup
 ENV ANFISA_ROOT=/anfisa
 ENV ANFISA_HTML_APP_BASE=/anfisa/app
 ENV ANFISA_HTML_BASE=/anfisa
+RUN ln -sf /dev/stdout /anfisa/a-setup/logs/anfisa.log \
+  && ln -sf /dev/stderr /anfisa/a-setup/logs/anfisa.log
+
 RUN apt-get update && apt-get install -y nginx
 RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/sites-available/default && mv supervisord.conf /etc/supervisord.conf && mv uwsgi.ini /anfisa/uwsgi.ini
 
