@@ -1,0 +1,39 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: anfisa-annotation
+  labels:
+    app: anfisa-annotation
+    deploymentconfig: anfisa-annotation
+spec:
+  replicas: 1
+  selector:
+    app: anfisa-annotation
+    deploymentconfig: anfisa-annotation
+  template:
+    metadata:
+      labels:
+        app: anfisa-annotation
+        deploymentconfig: anfisa-annotation
+    spec:
+      containers:
+        - name: anfisaannotation
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          tty: true
+          stdin: true
+          serviceAccount: default
+      terminationGracePeriodSeconds: 5
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - anfisaannotation
+      from:
+        kind: ImageStreamTag
+        name: image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation:latest
+    type: ImageChange
+  strategy:
+    type: Recreate

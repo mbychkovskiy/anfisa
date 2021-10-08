@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anfisa-annotation
+  labels:
+    app: anfisa-annotation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anfisa-annotation
+  template:
+    metadata:
+      labels:
+        app: anfisa-annotation
+    spec:
+      securityContext:
+        fsGroup: 999
+        fsUser: 999
+      initContainers:
+        - name: anfisavepconfig
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          tty: true
+          stdin: true
+          command:
+            - "entrypoint.sh"
+          args:
+            - "configurevep"
+          serviceAccount: default
+          volumeMounts:
+          - name: anfisa-annotation-vep-cache
+            mountPath: /opt/vep/.vep/
+      containers:
+        - name: anfisaannotation
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          tty: true
+          stdin: true
+          command:
+            - "entrypoint.sh"
+          args:
+            - "astorage"
+          serviceAccount: default
+          volumeMounts:
+          - name: anfisa-annotation
+            mountPath: /data/project/AStorage/astorage.cfg
+            subPath: astorage.cfg
+          - name: anfisa-annotation
+            mountPath: /data/project/AStorage/config.json
+            subPath: config.json
+          - name: anfisa-annotation-vep-cache
+            mountPath: /opt/vep/.vep/
+          - name: anfisa-annotation-data
+            mountPath: /data/forannotation/
+          - name: anfisa-annotation-db
+            mountPath: /db/
+      volumes:
+      - name: anfisa-annotation
+        configMap:
+          name: anfisa-annotation
+      - name: anfisa-annotation-vep-cache
+        persistentVolumeClaim:
+          claimName: asset-foromeannotation-pvc-dev
+      - name: anfisa-annotation-data
+        persistentVolumeClaim:
+          claimName: asset-foromeannotationdata-pvc-dev
+      - name: anfisa-annotation-db
+        persistentVolumeClaim:
+          claimName: asset-foromeannotationdb-pvc-dev
+
+      terminationGracePeriodSeconds: 5

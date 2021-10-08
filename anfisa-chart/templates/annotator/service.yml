@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: anfisa-annotation
+  name: anfisa-annotation
+spec:
+  ports:
+  - name: annotation
+    port: 80
+    protocol: TCP
+    targetPort: 3142
+  selector:
+    app: anfisa-annotation
+  sessionAffinity: None
+  type: ClusterIP

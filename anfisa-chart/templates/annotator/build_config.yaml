@@ -1,0 +1,25 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+    name: anfisa-annotation
+spec:
+  runPolicy: Serial
+  source:
+    type: Git
+    git:
+      uri: https://github.com/ForomePlatform/Anfisa-Annotations
+      ref: docker-support
+  strategy:
+    type: Docker
+    dockerStrategy:
+      noCache: false
+      dockerfilePath: Dockerfile
+  triggers:
+    - type: GitHub
+      github:
+        secretReference:
+          name: githubsecret
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "anfisa-annotation:latest"
