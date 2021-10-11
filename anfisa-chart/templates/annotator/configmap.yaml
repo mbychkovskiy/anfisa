@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: anfisa-annotation
+  name: anfisa-annotation-test
 data:
   astorage.cfg: |
     {

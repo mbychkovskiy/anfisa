@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: anfisa-annotation
+  name: anfisa-annotation-test
   labels:
-    app: anfisa-annotation
+    app: anfisa-annotation-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: anfisa-annotation
+      app: anfisa-annotation-test
   template:
     metadata:
       labels:
-        app: anfisa-annotation
+        app: anfisa-annotation-test
     spec:
       securityContext:
         fsGroup: 999
         fsUser: 999
       initContainers:
         - name: anfisavepconfig
-          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation"
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
@@ -34,7 +34,7 @@ spec:
             mountPath: /opt/vep/.vep/
       containers:
         - name: anfisaannotation
-          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation"
+          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true

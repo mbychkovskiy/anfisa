@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-    name: anfisa-annotation
+    name: anfisa-annotation-test
 spec:
   runPolicy: Serial
   source:
@@ -22,4 +22,4 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: "anfisa-annotation:latest"
+      name: "anfisa-annotation-test:latest"
