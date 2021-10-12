@@ -30,7 +30,7 @@ spec:
             - "configurevep"
           serviceAccount: default
           volumeMounts:
-          - name: anfisa-annotation-vep-cache
+          - name: anfisa-annotation-vep-cache-test
             mountPath: /opt/vep/.vep/
       containers:
         - name: anfisaannotation-test
@@ -55,7 +55,7 @@ spec:
             mountPath: /opt/vep/.vep/
           - name: anfisa-annotation-data-test
             mountPath: /data/forannotation/
-          - name: anfisa-annotation-db
+          - name: anfisa-annotation-db-test
             mountPath: /db/
       volumes:
       - name: anfisa-annotation-test
