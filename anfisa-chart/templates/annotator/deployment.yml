@@ -60,15 +60,15 @@ spec:
       volumes:
       - name: anfisa-annotation
         configMap:
-          name: anfisa-annotation
+          name: anfisa-annotation-test
       - name: anfisa-annotation-vep-cache
         persistentVolumeClaim:
-          claimName: asset-foromeannotation-pvc-dev
+          claimName: asset-foromeannotation-pvc-test
       - name: anfisa-annotation-data
         persistentVolumeClaim:
-          claimName: asset-foromeannotationdata-pvc-dev
+          claimName: asset-foromeannotationdata-pvc-test
       - name: anfisa-annotation-db
         persistentVolumeClaim:
-          claimName: asset-foromeannotationdb-pvc-dev
+          claimName: asset-foromeannotationdb-pvc-test
 
       terminationGracePeriodSeconds: 5

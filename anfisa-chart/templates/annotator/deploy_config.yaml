@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: anfisaannotation
-          image: "image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation-test"
+          image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
@@ -33,7 +33,7 @@ spec:
       - anfisaannotation
       from:
         kind: ImageStreamTag
-        name: image-registry.openshift-image-registry.svc:5000/asset-forome-dev/anfisa-annotation-test:latest
+        name: image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test:latest
     type: ImageChange
   strategy:
     type: Recreate
