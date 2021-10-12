@@ -45,15 +45,15 @@ spec:
             - "astorage"
           serviceAccount: default
           volumeMounts:
-          - name: anfisa-annotation
+          - name: anfisa-annotation-test
             mountPath: /data/project/AStorage/astorage.cfg
             subPath: astorage.cfg
-          - name: anfisa-annotation
+          - name: anfisa-annotation-test
             mountPath: /data/project/AStorage/config.json
             subPath: config.json
-          - name: anfisa-annotation-vep-cache
+          - name: anfisa-annotation-vep-cache-test
             mountPath: /opt/vep/.vep/
-          - name: anfisa-annotation-data
+          - name: anfisa-annotation-data-test
             mountPath: /data/forannotation/
           - name: anfisa-annotation-db
             mountPath: /db/
