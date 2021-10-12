@@ -7,7 +7,7 @@ spec:
   source:
     type: Git
     git:
-      uri: https://github.com/ForomePlatform/Anfisa-Annotations.git
+      uri: https://github.com/evgeniyabrosin/Anfisa-Annotations.git
       ref: docker-support
   strategy:
     type: Docker
