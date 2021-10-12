@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "druid.router.fullname" . }}
+#  name: druid-router-test
   labels:
     app: {{ include "druid.name" . }}
     chart: {{ include "druid.chart" . }}

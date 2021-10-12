@@ -24,10 +24,10 @@ spec:
           terminationMessagePolicy: File
           tty: true
           stdin: true
-          command:
-            - "entrypoint.sh"
-          args:
-            - "configurevep"
+#          command:
+#            - "entrypoint.sh"
+#          args:
+#            - "configurevep"
           serviceAccount: default
           volumeMounts:
           - name: anfisa-annotation-vep-cache
@@ -39,10 +39,10 @@ spec:
           terminationMessagePolicy: File
           tty: true
           stdin: true
-          command:
-            - "entrypoint.sh"
-          args:
-            - "astorage"
+#          command:
+#            - "entrypoint.sh"
+#          args:
+#            - "astorage"
           serviceAccount: default
           volumeMounts:
           - name: anfisa-annotation

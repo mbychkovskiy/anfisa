@@ -1,16 +1,26 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: druid-router
+  name: druid-router-test
+  labels:
+    app: {{ include "druid.name" . }}
+    chart: {{ include "druid.chart" . }}
+    component: {{ .Values.router.name }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+
+#  labels:
+#    app: druid
+#    app.kubernetes.io/managed-by: Helm
+#    component: router
+#    heritage: Helm
+#    release: druid
+
 spec:
-  # hostname: nginx-hello-world.asset-forome-dev-162fa491ef10b14d22843708d94ef0ba-0000.us-south.containers.appdomain.cloud
-  port:
-    targetPort: druid-router
-  tls:
-    insecureEdgeTerminationPolicy: Redirect
-    termination: edge
   to:
     kind: Service
     name: druid-router
     weight: 100
+  port:
+    targetPort: http
   wildcardPolicy: None
