@@ -140,11 +140,11 @@ data:
         },
         "database": {
             "hg38": "/data/annotations/database/1.0.0/annotation-hg38",
-    	    "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
-    	    "pastorage": "/projects/AStorage/"
+            "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
+            "pastorage": "/projects/AStorage/"
         },
         "source": {
-    	"external":{
+        "external":{
                 "url":"http://localhost:3142"
             }
         },

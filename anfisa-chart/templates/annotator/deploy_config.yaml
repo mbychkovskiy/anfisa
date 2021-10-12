@@ -17,7 +17,7 @@ spec:
         deploymentconfig: anfisa-annotation-test
     spec:
       containers:
-        - name: anfisaannotation
+        - name: anfisaannotation-test
           image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
@@ -30,7 +30,7 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - anfisaannotation
+      - anfisaannotation-test
       from:
         kind: ImageStreamTag
         name: image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test:latest

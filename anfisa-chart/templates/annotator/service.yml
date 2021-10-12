@@ -2,15 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: anfisa-annotation
-  name: anfisa-annotation
+    app: anfisa-annotation-test
+  name: anfisa-annotation-test
 spec:
   ports:
-  - name: annotation
+  - name: annotation-test
     port: 80
     protocol: TCP
     targetPort: 3142
   selector:
-    app: anfisa-annotation
+    app: anfisa-annotation-test
   sessionAffinity: None
   type: ClusterIP

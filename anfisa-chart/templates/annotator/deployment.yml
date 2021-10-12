@@ -18,31 +18,31 @@ spec:
         fsGroup: 999
         fsUser: 999
       initContainers:
-        - name: anfisavepconfig
+        - name: anfisavepconfig-test
           image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
           stdin: true
-#          command:
-#            - "entrypoint.sh"
-#          args:
-#            - "configurevep"
+          command:
+            - "entrypoint.sh"
+          args:
+            - "configurevep"
           serviceAccount: default
           volumeMounts:
           - name: anfisa-annotation-vep-cache
             mountPath: /opt/vep/.vep/
       containers:
-        - name: anfisaannotation
+        - name: anfisaannotation-test
           image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
           stdin: true
-#          command:
-#            - "entrypoint.sh"
-#          args:
-#            - "astorage"
+          command:
+            - "entrypoint.sh"
+          args:
+            - "astorage"
           serviceAccount: default
           volumeMounts:
           - name: anfisa-annotation
@@ -58,16 +58,16 @@ spec:
           - name: anfisa-annotation-db
             mountPath: /db/
       volumes:
-      - name: anfisa-annotation
+      - name: anfisa-annotation-test
         configMap:
           name: anfisa-annotation-test
-      - name: anfisa-annotation-vep-cache
+      - name: anfisa-annotation-vep-cache-test
         persistentVolumeClaim:
           claimName: asset-foromeannotation-pvc-test
-      - name: anfisa-annotation-data
+      - name: anfisa-annotation-data-test
         persistentVolumeClaim:
           claimName: asset-foromeannotationdata-pvc-test
-      - name: anfisa-annotation-db
+      - name: anfisa-annotation-db-test
         persistentVolumeClaim:
           claimName: asset-foromeannotationdb-pvc-test
 
