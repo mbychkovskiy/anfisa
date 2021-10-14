@@ -1,7 +1,7 @@
 
 FROM python:3.7
 WORKDIR /anfisa
-RUN bash -c 'mkdir -p /anfisa/anfisa && mkdir -p /anfisa/a-setup/ && mkdir -p /anfisa/a-setup/{data,logs,vault,export/work,ui}'
+RUN bash -c 'mkdir -p /anfisa/anfisa && mkdir -p /anfisa/a-setup/ && mkdir -p /data/ && mkdir -p /anfisa/a-setup/{data,logs,vault,export/work,ui}'
 
 #COPY ./setup/ /anfisa/anfisa/setup/
 COPY . /anfisa/anfisa/
