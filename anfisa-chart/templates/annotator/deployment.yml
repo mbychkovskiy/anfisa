@@ -17,6 +17,7 @@ spec:
       securityContext:
         fsGroup: 999
         fsUser: 999
+        runAsUser: 999
       initContainers:
         - name: anfisavepconfig-test
           image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-annotation-test"
