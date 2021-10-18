@@ -30,10 +30,10 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - anfisa6
+      - "{{ .Values.anfisa.name }}"
       from:
         kind: ImageStreamTag
-        name: image-registry.openshift-image-registry.svc:5000/test/anfisa-test:latest
+        name: "{{ .Values.anfisa.image.registry }}/{{ .Values.anfisa.image.repository }}:{{ .Values.anfisa.image.tag }}"
     type: ImageChange
   strategy:
     type: Rolling
