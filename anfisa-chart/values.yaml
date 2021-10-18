@@ -269,3 +269,19 @@ mongodb:
     runAsUser: 1000646000
   serviceAccount:
     enabled: true
+
+# ------------------------------------------------------------------------------
+# ANFISA:
+# ------------------------------------------------------------------------------
+anfisa:
+  name: anfisa-test
+  gitUri: https://github.com/ForomePlatform/anfisa
+    ref: test
+  dockerfilePath: setup/Dockerfile
+  outputName: anfisa-test:latest
+  image:
+    registry: docker.io
+    repository: bitnami/postgres-exporter
+    tag: 0.8.0-debian-10-r28
+
+

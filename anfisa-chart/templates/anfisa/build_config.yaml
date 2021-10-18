@@ -1,20 +1,20 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-    name: anfisa-test
+    name:  "{{ .Values.anfisa.name }}"
 spec:
   runPolicy: Serial
   source:
     type: Git
     git:
-      uri: https://github.com/ForomePlatform/anfisa
-      ref: test
+      uri: "{{ .Values.anfisa.gitUri }}"
+      ref: "{{ .Values.anfisa.gitUri.ref }}"
   strategy:
     type: Docker
     dockerStrategy:
       noCache: false
-      dockerfilePath: setup/Dockerfile
+      dockerfilePath: "{{ .Values.anfisa.dockerfilePath }}"
   output:
     to:
       kind: ImageStreamTag
-      name: "anfisa-test:latest"
+      name: "{{ .Values.anfisa.outputName }}"
