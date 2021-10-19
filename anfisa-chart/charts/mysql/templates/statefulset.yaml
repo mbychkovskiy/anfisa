@@ -24,20 +24,20 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-          - name: "{{ .Values.env.1env }}"
+          - name: MYSQL_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: "{{ .Values.env.1env.secretname }}"
-                key: "{{ .Values.env.1env.key }}"
-          - name: "{{ .Values.env.2env }}"
-            value: "{{ .Values.env.2env.value }}"
-          - name: "{{ .Values.env.3env }}"
+                name: mysql-secret
+                key: mysql-root-password
+          - name: MYSQL_USER
+            value: user
+          - name: MYSQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: "{{ .Values.env.3env.secretname }}"
-                key: "{{ .Values.env.3env.key }}"
-          - name: "{{ .Values.env.4env }}"
-            value: "{{ .Values.env.4env.value }}"
+                name: mysql-secret
+                key: mysql-password
+          - name: MYSQL_DATABASE
+            value: forome
 
 #          volumeMounts:
 #            - name: data
