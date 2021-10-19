@@ -7,7 +7,7 @@ data:
     {
       "file-path-def": {
         "LOAD": "/db/download",
-        "WORK": "/data/projects/AStorage"
+        "WORK": "/data/project/AStorage"
       },
 
       "stderr": "${WORK}/logs/err.log",
@@ -31,8 +31,8 @@ data:
             "file_list": "${LOAD}/Gerp/chr*.maf.rates"
         },
         "SpliceAI": {
-            "indel_file_list": "--/projects/AStorage/prep/spliceAI/indel.spliceai.chr*.vcf.gz",
-            "snv_file_list": "--/projects/AStorage/prep/spliceAI/snv.spliceai.chr*.vcf.gz"
+            "indel_file_list": "--/project/AStorage/prep/spliceAI/indel.spliceai.chr*.vcf.gz",
+            "snv_file_list": "--/project/AStorage/prep/spliceAI/snv.spliceai.chr*.vcf.gz"
         },
         "dbNSFP": {
             "file_list": "${LOAD}/dbNSFP4/dbNSFP4.0a_variant.chr*.gz"
@@ -141,7 +141,7 @@ data:
         "database": {
             "hg38": "/data/annotations/database/1.0.0/annotation-hg38",
             "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
-            "pastorage": "/projects/AStorage/"
+            "pastorage": "/project/AStorage/"
         },
         "source": {
         "external":{
