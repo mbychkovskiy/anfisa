@@ -220,7 +220,7 @@ data:
         },
         "notification": {
             "slack": {
-                "webhook_url":"https://hooks.slack.com/services/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",
+                "webhook_url": "https://hooks.slack.com/services/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",
                 "channel": "anotator-notification"
             }
         }
