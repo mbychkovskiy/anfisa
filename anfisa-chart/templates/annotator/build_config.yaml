@@ -1,14 +1,14 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-    name: anfisa-annotation-test
+    name: {{ .Values.annotator.name }}
 spec:
   runPolicy: Serial
   source:
     type: Git
     git:
-      uri: https://github.com/evgeniyabrosin/Anfisa-Annotations.git
-      ref: docker-support
+      uri: {{ .Values.annotator.git_uri }}
+      ref: {{ .Values.annotator.git_branch }}
   strategy:
     type: Docker
     dockerStrategy:
@@ -22,4 +22,4 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: "anfisa-annotation-test:latest"
+      name: "{{ .Values.annotator.name }}:latest"

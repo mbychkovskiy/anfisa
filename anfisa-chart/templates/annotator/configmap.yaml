@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: anfisa-annotation-test
+  name: {{ .Values.annotator.name }}
 data:
   astorage.cfg: |
     {

@@ -270,7 +270,6 @@ mongodb:
   serviceAccount:
     enabled: true
 
-
 # ------------------------------------------------------------------------------
 # Anfisa:
 # ------------------------------------------------------------------------------
@@ -287,3 +286,13 @@ anfisa:
 
     workdir_volume: anfisa-workdir
     workdir_claim_name: asset-forome-pvc-test
+
+# ------------------------------------------------------------------------------
+# Annotator:
+# ------------------------------------------------------------------------------
+
+annotator:
+  project: test
+  name: anfisa-annotation-test
+  git_uri: https://github.com/evgeniyabrosin/Anfisa-Annotations.git
+  git_branch: docker-support
