@@ -231,44 +231,44 @@ monitoring:
   createServiceMonitor: true
   port: 8000
 
-# zookeeper:
-#   enabled: true
-#   replicaCount: 3
-#   env:
-#     ZK_HEAP_SIZE: "512M"
-#   persistence:
-#     enabled: true
+zookeeper:
+  enabled: true
+  replicaCount: 3
+  env:
+    ZK_HEAP_SIZE: "512M"
+  persistence:
+    enabled: true
 
 
-# # ------------------------------------------------------------------------------
-# # PostgreSql:
-# # ------------------------------------------------------------------------------
-# postgresql:
-#   enabled: true
-#   postgresqlPostgresPassword: druidroot
-#   postgresqlUsername: druid
-#   postgresqlPassword: druid
-#   postgresqlDatabase: druid
+# ------------------------------------------------------------------------------
+# PostgreSql:
+# ------------------------------------------------------------------------------
+postgresql:
+  enabled: true
+  postgresqlPostgresPassword: druidroot
+  postgresqlUsername: druid
+  postgresqlPassword: druid
+  postgresqlDatabase: druid
 
-# # ------------------------------------------------------------------------------
-# # MongoDB:
-# # ------------------------------------------------------------------------------
-# mongodb:
-#   enabled: true
-#   useStatefulSet: true
-#   architecture: standalone
-#   auth:
-#     enabled: false
-#     username: admin
-#     database: temp
-#   podSecurityContext:
-#     enabled: true
-#     fsGroup: 1000646000
-#   containerSecurityContext:
-#     enabled: false
-#     runAsUser: 1000646000
-#   serviceAccount:
-#     enabled: true
+# ------------------------------------------------------------------------------
+# MongoDB:
+# ------------------------------------------------------------------------------
+mongodb:
+  enabled: true
+  useStatefulSet: true
+  architecture: standalone
+  auth:
+    enabled: false
+    username: admin
+    database: temp
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1000646000
+  containerSecurityContext:
+    enabled: false
+    runAsUser: 1000646000
+  serviceAccount:
+    enabled: true
 
 
 # ------------------------------------------------------------------------------

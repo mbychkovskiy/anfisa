@@ -1,16 +1,16 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: anfisa-test
+  name: {{ .Values.anfisa.name }}
 spec:
   # hostname: nginx-hello-world.asset-forome-dev-162fa491ef10b14d22843708d94ef0ba-0000.us-south.containers.appdomain.cloud
   port:
-    targetPort: anfisa-test
+    targetPort: {{ .Values.anfisa.name }}
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
   to:
     kind: Service
-    name: anfisa-test
+    name: {{ .Values.anfisa.name }}
     weight: 100
   wildcardPolicy: None
