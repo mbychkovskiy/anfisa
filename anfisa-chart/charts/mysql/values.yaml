@@ -38,12 +38,14 @@ resources: {}
 
 environment:
   first_env: MYSQL_ROOT_PASSWORD
-    name: mysql-secret
-    key: mysql-root-password
+  secret_name: mysql-secret
+  secret_key1: mysql-root-password
+
   second_env: MYSQL_USER
-    value: user
+  user: user
+
   third_env: MYSQL_PASSWORD
-    name: mysql-secret
-    key: mysql-password
+  secret_key2: mysql-password
+
   fourth_env: MYSQL_DATABASE
-    value: forome
+  database: forome

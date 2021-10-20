@@ -25,20 +25,20 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
 
           env:
-          - name: {{ .Values.mysql.environment.first_env }}
+          - name: {{ .Values.environment.first_env }}
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.mysql.environment.first_env.name }}
-                key: {{ .Values.mysql.environment.first_env.key }}
-          - name: {{ .Values.mysql.environment.second_env }}
-            value: {{ .Values.mysql.environment.second_env.value }}
-          - name: {{ .Values.mysql.environment.third_env }}
+                name: {{ .Values.environment.secret_name }}
+                key: {{ .Values.environment.secret_key1 }}
+          - name: {{ .Values.environment.second_env }}
+            value: {{ .Values.environment.user }}
+          - name: {{ .Values.environment.third_env }}
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.mysql.environment.third_env.name }}
-                key: {{ .Values.mysql.environment.third_env.key }}
-          - name: {{ .Values.mysql.environment.fourth_env }}
-            value: {{ .Values.mysql.environment.fourth_env.value }}
+                name: {{ .Values.environment.secret_name }}
+                key: {{ .Values.environment.secret_key2 }}
+          - name: {{ .Values.environment.fourth_env }}
+            value: {{ .Values.environment.database }}
 
 #          volumeMounts:
 #            - name: data
