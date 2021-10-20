@@ -23,21 +23,22 @@ spec:
           args: ["--default-authentication-plugin=mysql_native_password"]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+
           env:
-          - name: MYSQL_ROOT_PASSWORD
+          - name: {{ .Values.mysql.environment.first_env }}
             valueFrom:
               secretKeyRef:
-                name: mysql-secret
-                key: mysql-root-password
-          - name: MYSQL_USER
-            value: user
-          - name: MYSQL_PASSWORD
+                name: {{ .Values.mysql.environment.first_env.name }}
+                key: {{ .Values.mysql.environment.first_env.key }}
+          - name: {{ .Values.mysql.environment.second_env }}
+            value: {{ .Values.mysql.environment.second_env.value }}
+          - name: {{ .Values.mysql.environment.third_env }}
             valueFrom:
               secretKeyRef:
-                name: mysql-secret
-                key: mysql-password
-          - name: MYSQL_DATABASE
-            value: forome
+                name: {{ .Values.mysql.environment.third_env.name }}
+                key: {{ .Values.mysql.environment.third_env.key }}
+          - name: {{ .Values.mysql.environment.fourth_env }}
+            value: {{ .Values.mysql.environment.fourth_env.value }}
 
 #          volumeMounts:
 #            - name: data

@@ -34,3 +34,16 @@ resources: {}
 #  requests:
 #    cpu: "1"
 #    memory: "2048Mi"
+
+
+environment:
+  first_env: MYSQL_ROOT_PASSWORD
+    name: mysql-secret
+    key: mysql-root-password
+  second_env: MYSQL_USER
+    value: user
+  third_env: MYSQL_PASSWORD
+    name: mysql-secret
+    key: mysql-password
+  fourth_env: MYSQL_DATABASE
+    value: forome
