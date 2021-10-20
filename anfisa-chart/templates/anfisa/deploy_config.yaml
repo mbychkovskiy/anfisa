@@ -1,24 +1,24 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: anfisa-test
+  name: {{ .Values.anfisa.name }}
   labels:
-    app: anfisa-test
-    deploymentconfig: anfisa-test
+    app: {{ .Values.anfisa.name }}
+    deploymentconfig: {{ .Values.anfisa.name }}
 spec:
   replicas: 1
   selector:
-    app: anfisa-test
-    deploymentconfig: anfisa-test
+    app: {{ .Values.anfisa.name }}
+    deploymentconfig: {{ .Values.anfisa.name }}
   template:
     metadata:
       labels:
-        app: anfisa-test
-        deploymentconfig: anfisa-test
+        app: {{ .Values.anfisa.name }}
+        deploymentconfig: {{ .Values.anfisa.name }}
     spec:
       containers:
-        - name: anfisa-test
-          image: "image-registry.openshift-image-registry.svc:5000/test/anfisa-test"
+        - name: {{ .Values.anfisa.name }}
+          image: "image-registry.openshift-image-registry.svc:5000/{{ .Values.anfisa.project }}/{{ .Values.anfisa.name }}"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
@@ -30,10 +30,10 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - anfisa6
+      - {{ .Values.anfisa.name }}
       from:
         kind: ImageStreamTag
-        name: image-registry.openshift-image-registry.svc:5000/test/anfisa-test:latest
+        name: "image-registry.openshift-image-registry.svc:5000/{{ .Values.anfisa.project }}/{{ .Values.anfisa.name }}:latest"
     type: ImageChange
   strategy:
     type: Rolling

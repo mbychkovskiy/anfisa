@@ -220,8 +220,8 @@ data:
         },
         "notification": {
             "slack": {
-                "webhook_url":"https://hooks.slack.com/services/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",
-                "channel": "anotator-notification"
+                "webhook_url":"https://hooks.slack.com/services/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",
+                "channel": "Evgeniy Abrosin"
             }
         }
     }

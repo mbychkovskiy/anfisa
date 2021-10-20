@@ -231,41 +231,59 @@ monitoring:
   createServiceMonitor: true
   port: 8000
 
-zookeeper:
-  enabled: true
-  replicaCount: 3
-  env:
-    ZK_HEAP_SIZE: "512M"
-  persistence:
-    enabled: true
+# zookeeper:
+#   enabled: true
+#   replicaCount: 3
+#   env:
+#     ZK_HEAP_SIZE: "512M"
+#   persistence:
+#     enabled: true
+
+
+# # ------------------------------------------------------------------------------
+# # PostgreSql:
+# # ------------------------------------------------------------------------------
+# postgresql:
+#   enabled: true
+#   postgresqlPostgresPassword: druidroot
+#   postgresqlUsername: druid
+#   postgresqlPassword: druid
+#   postgresqlDatabase: druid
+
+# # ------------------------------------------------------------------------------
+# # MongoDB:
+# # ------------------------------------------------------------------------------
+# mongodb:
+#   enabled: true
+#   useStatefulSet: true
+#   architecture: standalone
+#   auth:
+#     enabled: false
+#     username: admin
+#     database: temp
+#   podSecurityContext:
+#     enabled: true
+#     fsGroup: 1000646000
+#   containerSecurityContext:
+#     enabled: false
+#     runAsUser: 1000646000
+#   serviceAccount:
+#     enabled: true
 
 
 # ------------------------------------------------------------------------------
-# PostgreSql:
+# Anfisa:
 # ------------------------------------------------------------------------------
-postgresql:
-  enabled: true
-  postgresqlPostgresPassword: druidroot
-  postgresqlUsername: druid
-  postgresqlPassword: druid
-  postgresqlDatabase: druid
 
-# ------------------------------------------------------------------------------
-# MongoDB:
-# ------------------------------------------------------------------------------
-mongodb:
-  enabled: true
-  useStatefulSet: true
-  architecture: standalone
-  auth:
-    enabled: false
-    username: admin
-    database: temp
-  podSecurityContext:
-    enabled: true
-    fsGroup: 1000646000
-  containerSecurityContext:
-    enabled: false
-    runAsUser: 1000646000
-  serviceAccount:
-    enabled: true
+anfisa:
+  project: test
+  name: anfisa-test
+  git_uri: https://github.com/ForomePlatform/anfisa
+  git_branch: test
+
+  anfisa_volumes:
+    data_volume: data2
+    data_claim_name: s3pvc
+
+    workdir_volume: anfisa-workdir
+    workdir_claim_name: asset-forome-pvc-test
