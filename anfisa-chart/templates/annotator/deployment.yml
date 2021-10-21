@@ -14,9 +14,10 @@ spec:
       labels:
         app: {{ .Values.annotator.name }}
     spec:
+      serviceAccountName: default
       securityContext:
         fsGroup: 999
-        fsUser: 999
+        # fsUser: 999
         runAsUser: 999
       initContainers:
         - name: anfisavepconfig-{{ .Values.annotator.project }}
@@ -29,7 +30,7 @@ spec:
             - "entrypoint.sh"
           args:
             - "configurevep"
-          serviceAccount: default
+          # serviceAccount: default
           volumeMounts:
           - name: anfisa-annotation-vep-cache-{{ .Values.annotator.project }}
             mountPath: /opt/vep/.vep/
@@ -44,7 +45,7 @@ spec:
             - "entrypoint.sh"
           args:
             - "astorage"
-          serviceAccount: default
+
           volumeMounts:
           - name: {{ .Values.annotator.name }}
             mountPath: /data/project/AStorage/astorage.cfg

@@ -23,7 +23,7 @@ spec:
           terminationMessagePolicy: File
           tty: true
           stdin: true
-          serviceAccount: default
+      serviceAccountName: default
       terminationGracePeriodSeconds: 5
   triggers:
   - type: ConfigChange
