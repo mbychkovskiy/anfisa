@@ -1,13 +1,5 @@
 dependencies:
-- name: zookeeper
-  version: 6.7.2
-  repository: https://charts.bitnami.com/bitnami
-  condition: zookeeper.enabled
-- name: postgresql
-  version: 10.4.0
-  repository: https://charts.bitnami.com/bitnami
-  condition: postgresql.enabled
-- name: mongodb
-  version: 10.13.0
-  repository: https://charts.bitnami.com/bitnami
-  condition: mongodb.enabled
+- name: druid
+  version: 0.3.12
+  repository: "file://./charts/druid"
+  condition: druid.enabled

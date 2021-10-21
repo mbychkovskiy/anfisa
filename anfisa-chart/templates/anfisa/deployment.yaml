@@ -33,7 +33,7 @@ spec:
             - name: ANFISA_MONGO_HOST
               value: druid-mongodb
 
-          image: "image-registry.openshift-image-registry.svc:5000/{{ .Values.anfisa.project }}/{{ .Values.anfisa.name }}"
+          image: "{{ .Values.anfisa.output_registry }}/{{ .Values.anfisa.project }}/{{ .Values.anfisa.name }}"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           tty: true
