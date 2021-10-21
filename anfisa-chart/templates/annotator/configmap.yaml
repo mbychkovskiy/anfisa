@@ -134,94 +134,47 @@ data:
     }
   
   config.json: |
-    {
-        "frontend":{
-            "apikey":"3dc904aa9c434e9cae4b28c2b5021101"
-        },
-        "database": {
-            "hg38": "/data/annotations/database/1.0.0/annotation-hg38",
-            "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
-            "pastorage": "/project/AStorage/"
-        },
-        "source": {
-        "external":{
-                "url":"http://localhost:3142"
+{
+    "frontend":{
+        "apikey":"3dc904aa9c434e9cae4b28c2b5021101"
+    },
+    "database": {
+        "hg38": "/data/annotations/database/1.0.0/annotation-hg38",
+        "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
+        "pastorage": "/project/AStorage/"
+    },
+    "source": {
+    "external":{
+            "url":"http://localhost:3142"
+        }
+    },
+    "connectors": {
+        "forome": {
+            "mysql": {
+                "host": "mysql",
+                "port": 3306,
+                "database": "forome",
+                "user": "user",
+                "password": "user"
             }
         },
-        "connectors": {
-            "forome": {
-                "mysql": {
-                    "host": "mysql",
-                    "port": 3306,
-                    "database": "forome",
-                    "user": "user",
-                    "password": "user"
-                }
-            },
+        "astorage": {
             "astorage": {
-                "astorage": {
-                    "host": "localhost",
-                    "port": 8290
-                }
-            },
-            "hgmd": {
-                "mysql": {
-                    "host": "mysql",
-                    "port": 3306,
-                    "database": "hgmd_pro",
-                    "user": "user",
-                    "password": "user"
-                }
-            },
-            "gtf": {
-                "mysql": {
-                    "host": "mysql",
-                    "port": 3306,
-                    "database": "ensembl",
-                    "user": "user",
-                    "password": "user"
-                }
-            },
-            "gnomad": {
-                "mysql": {
-                    "host": "mysql",
-                    "port": 3306,
-                    "database": "gnomad",
-                    "user": "user",
-                    "password": "user"
-                }
-            },
-            "ref": {
-                "ssh_tunnel": {
-                    "host": "108.26.194.164",
-                    "port": 22,
-                    "user": "vulitin",
-                    "key": "/home/kris/processtech/key/processtech_id_rsa"
-                },
-                "mysql": {
-                    "host": "localhost",
-                    "port": 3306,
-                    "database": "util",
-                    "user": "hgmd",
-                    "password": "hgmd"
-                }
+                "host": "localhost",
+                "port": 8290                        
             }
         },
-        "ensembl-vep": {
-            "ssh_tunnel": {
-                "host": "108.26.194.164",
-                "port": 22,
-                "user": "vulitin",
-                "key": "/home/kris/processtech/key/processtech_id_rsa"
-            },
-            "app": {
-                "exec": "/db/vep-93/ensembl-vep/vep"
-            }
-        },
-        "notification": {
-            "slack": {
-                "webhook_url":"https://hooks.slack.com/services/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",
-                "channel": "Evgeniy Abrosin"
-            }
+    },
+    "ensembl-vep": {
+        
+        "app": {
+            "exec": "/opt/vep/src/ensembl-vep/vep"
+        }
+    },
+    "notification": {
+        "slack": {
+            "webhook_url":"https://hooks.slack.com/services/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",
+            "channel": "Evgeniy Abrosin"
         }
     }
+}
