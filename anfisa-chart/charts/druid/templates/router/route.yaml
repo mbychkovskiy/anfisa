@@ -1,20 +1,13 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: druid-router-test
+  name: druid-router
   labels:
     app: {{ include "druid.name" . }}
     chart: {{ include "druid.chart" . }}
     component: {{ .Values.router.name }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-
-#  labels:
-#    app: druid
-#    app.kubernetes.io/managed-by: Helm
-#    component: router
-#    heritage: Helm
-#    release: druid
 
 spec:
   to:

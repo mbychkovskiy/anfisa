@@ -19,30 +19,3 @@ spec:
     app: {{ include "druid.name" . }}
     release: {{ .Release.Name }}
     component: {{ .Values.router.name }}
-
-
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  name: druid-router-test
-#  labels:
-#    app: druid
-#    app.kubernetes.io/managed-by: Helm
-#    chart: druid
-#    component: router
-#    heritage: Helm
-#    release: druid
-#
-#  
-#spec:
-#  ports:
-#    - name: http
-#      protocol: TCP
-#      port: 80
-#      targetPort: http
-#  selector:
-#    app: druid
-#    component: router
-#    release: druid
-#  type: ClusterIP
-#  sessionAffinity: None

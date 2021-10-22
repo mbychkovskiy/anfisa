@@ -173,7 +173,7 @@ data:
     },
     "notification": {
         "slack": {
-            "webhook_url":"https://hooks.slack.com/services/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",
+            "webhook_url":"https://hooks.slack.com/services/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",
             "channel": "Evgeniy Abrosin"
         }
     }
