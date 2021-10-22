@@ -134,47 +134,47 @@ data:
     }
   
   config.json: |
-{
-    "frontend":{
-        "apikey":"3dc904aa9c434e9cae4b28c2b5021101"
-    },
-    "database": {
-        "hg38": "/data/annotations/database/1.0.0/annotation-hg38",
-        "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
-        "pastorage": "/project/AStorage/"
-    },
-    "source": {
-    "external":{
-            "url":"http://localhost:3142"
-        }
-    },
-    "connectors": {
-        "forome": {
-            "mysql": {
-                "host": "mysql",
-                "port": 3306,
-                "database": "forome",
-                "user": "user",
-                "password": "user"
+    {
+        "frontend": {
+            "apikey": "3dc904aa9c434e9cae4b28c2b5021101"
+        },
+        "database": {
+            "hg38": "/data/annotations/database/1.0.0/annotation-hg38",
+            "hg37": "/data/annotations/database/1.0.0/annotation-hg37",
+            "pastorage": "/project/AStorage/"
+        },
+        "source": {
+            "external": {
+                "url": "http://localhost:3142"
             }
         },
-        "astorage": {
+
+        "connectors": {
+            "forome": {
+                "mysql": {
+                    "host": "mysql",
+                    "port": 3306,
+                    "database": "forome",
+                    "user": "user",
+                    "password": "user"
+                }
+            },
             "astorage": {
-                "host": "localhost",
-                "port": 8290                        
+                "astorage": {
+                    "host": "localhost",
+                    "port": 8290
+                }
             }
         },
-    },
-    "ensembl-vep": {
-        
-        "app": {
-            "exec": "/opt/vep/src/ensembl-vep/vep"
-        }
-    },
-    "notification": {
-        "slack": {
-            "webhook_url":"https://hooks.slack.com/services/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",
-            "channel": "Evgeniy Abrosin"
+        "ensembl-vep": {
+            "app": {
+                "exec": "/opt/vep/src/ensembl-vep/vep"
+            }
+        },
+        "notification": {
+            "slack": {
+                "webhook_url": "https://hooks.slack.com/services/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",
+                "channel": "Evgeniy Abrosin"
+            }
         }
     }
-}
