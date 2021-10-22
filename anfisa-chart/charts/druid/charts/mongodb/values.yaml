@@ -803,9 +803,13 @@ arbiter:
   ## MongoDB(R) Arbiter pods' Security Context.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ##
+
+
+
+
   podSecurityContext:
     #enabled: false
-    fsGroup: 1000
+    fsGroup: 1000646000
     ## sysctl settings
     ## Example:
     ## sysctls:
@@ -819,7 +823,7 @@ arbiter:
   ##
   containerSecurityContext:
     #enabled: false
-    runAsUser: 1000670000
+    runAsUser: 1000760000
 
   ## MongoDB(R) Arbiter containers' resource requests and limits.
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/

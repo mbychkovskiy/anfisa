@@ -266,7 +266,7 @@ mongodb:
     fsGroup: 1000646000
   containerSecurityContext:
     enabled: false
-    runAsUser: 1000646000
+    runAsUser: 1000760000
   serviceAccount:
     enabled: true
 
