@@ -114,10 +114,5 @@ spec:
     {{- end }}
       securityContext:
         fsGroup: 1000
-        runAsUser: 1000670000
+        runAsUser: 1000760000
         runAsGroup: 1000
-
-
-#      securityContext:
-#        seLinuxOptions:
-#        level: 's0:c25,c20'

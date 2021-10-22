@@ -114,5 +114,5 @@ spec:
 
       securityContext:
         fsGroup: 1000
-        runAsUser: 1000670000
+        runAsUser: 1000760000
         runAsGroup: 1000
