@@ -267,7 +267,7 @@ serviceAccount:
 securityContext:
   enabled: true
   fsGroup: 1000646000
-  runAsUser: 1000760000
+  runAsUser: 1000670000
 
 ## Add initContainers to the web pods.
 ## Example:
