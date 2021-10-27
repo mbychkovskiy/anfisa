@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: data2
           persistentVolumeClaim:
-            claimName: s3pvc
+            claimName: data2
       {{- if or .Values.historical.antiAffinity .Values.historical.nodeAffinity }}
       affinity:
       {{- end }}
@@ -176,3 +176,12 @@ spec:
         requests:
           storage: "{{ .Values.historical.persistence.size }}"
   {{ end }}
+  - metadata:
+      name: data2
+    spec:
+      accessModes:
+      - {{ .Values.historical.persistence.data2_claim.accessmode }}
+      storageClassName: "{{ .Values.historical.persistence.data2_claim.storageclass }}"
+      resources:
+        requests:
+          storage: "{{ .Values.historical.persistence.data2_claim.size }}"

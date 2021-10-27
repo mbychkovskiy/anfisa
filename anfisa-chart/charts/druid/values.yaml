@@ -159,6 +159,11 @@ historical:
     accessMode: ReadWriteOnce
     size: "4Gi"
     # storageClass: "ssd"
+    data2_claim:
+      storageclass: "ibmc-vpc-block-10iops-tier"
+      accessmode: ReadWriteOnce
+      size: "10Gi"
+
   health:
     livenessInitialDelaySeconds: 120
     readinessInitialDelaySeconds: 120
@@ -203,7 +208,14 @@ middleManager:
     enabled: true
     accessMode: ReadWriteOnce
     size: "4Gi"
-    # storageClass: "ssd"
+    #storageClass: "ibmc-vpc-block-10iops-tier"
+
+    data2_claim:
+      storageclass: "ibmc-vpc-block-10iops-tier"
+      accessmode: ReadWriteOnce
+      size: "10Gi"
+      
+    
   health:
     livenessInitialDelaySeconds: 60
     readinessInitialDelaySeconds: 60
@@ -225,6 +237,7 @@ middleManager:
 #    DRUID_MAXNEWSIZE: 250m
 #    DRUID_NEWSIZE: 250m
 #    DRUID_MAXDIRECTMEMORYSIZE: 6172m
+  
 
 monitoring:
   enabled: false

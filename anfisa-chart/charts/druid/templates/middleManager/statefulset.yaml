@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: data2
           persistentVolumeClaim:
-            claimName: s3pvc
+            claimName: data2
       {{- if or .Values.middleManager.antiAffinity .Values.middleManager.nodeAffinity }}
       affinity:
       {{- end }}
@@ -120,8 +120,8 @@ spec:
         - containerPort: {{ .Values.middleManager.port }}
           name: http
         volumeMounts:
-        - mountPath: /opt/druid/var
-          name: data
+        - name: data
+          mountPath: /opt/druid/var
         - name: data2
           mountPath: /data
 
@@ -171,3 +171,12 @@ spec:
           storage: "{{ .Values.middleManager.persistence.size }}"
   {{ end }}
 
+  - metadata:
+      name: data2
+    spec:
+      accessModes:
+      - {{ .Values.middleManager.persistence.data2_claim.accessmode }}
+      storageClassName: "{{ .Values.middleManager.persistence.data2_claim.storageclass }}"
+      resources:
+        requests:
+          storage: "{{ .Values.middleManager.persistence.data2_claim.size }}"

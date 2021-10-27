@@ -6,25 +6,25 @@
 # ------------------------------------------------------------------------------
 
 anfisa:
-  project: test3
-  name: anfisa-test3
+  project: test
+  name: anfisa-test
   git_uri: https://github.com/ForomePlatform/anfisa
   git_branch: test
   output_registry: image-registry.openshift-image-registry.svc:5000
   anfisa_volumes:
-    data_volume: data2
-    data_claim_name: s3pvc
+    data_volume: anfisa-data
+    data_claim_name: anfisa-data-claim
 
     workdir_volume: anfisa-workdir
-    workdir_claim_name: asset-forome-pvc-test3
+    workdir_claim_name: anfisa-workdir-claim
 
 # ------------------------------------------------------------------------------
 # Annotator:
 # ------------------------------------------------------------------------------
 
 annotator:
-  project: test3
-  name: anfisa-annotation-test3
+  project: test
+  name: anfisa-annotation-test
   git_uri: https://github.com/evgeniyabrosin/Anfisa-Annotations.git
   git_branch: docker-support
   output_registry: image-registry.openshift-image-registry.svc:5000
