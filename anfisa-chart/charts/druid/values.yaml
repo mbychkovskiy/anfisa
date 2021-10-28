@@ -47,6 +47,17 @@ env:
   druid_indexer_fork_property_druid_processing_buffer_sizeBytes: "10000000"
   druid_indexer_fork_property_druid_processing_numThreads: "1"
 
+#persistenceVolumeClaim for druid-components
+pvc:
+  volumename: s3pvc
+  volumename_label: pv
+  volumename_selector: druid
+
+  accessmode: ReadWriteMany
+  size: "10Gi"
+  volumemode: Filesystem
+  storageclass: "ibmc-vpc-block-10iops-tier" 
+
 router:
   managementProxy:
     enabled: true
@@ -159,10 +170,6 @@ historical:
     accessMode: ReadWriteOnce
     size: "4Gi"
     # storageClass: "ssd"
-    data2_claim:
-      storageclass: "ibmc-vpc-block-10iops-tier"
-      accessmode: ReadWriteOnce
-      size: "10Gi"
 
   health:
     livenessInitialDelaySeconds: 120
@@ -210,10 +217,10 @@ middleManager:
     size: "4Gi"
     #storageClass: "ibmc-vpc-block-10iops-tier"
 
-    data2_claim:
-      storageclass: "ibmc-vpc-block-10iops-tier"
-      accessmode: ReadWriteOnce
-      size: "10Gi"
+    # data2_claim:
+    #   storageclass: "ibmc-vpc-block-10iops-tier"
+    #   accessmode: ReadWriteMany
+    #   size: "10Gi"
       
     
   health:

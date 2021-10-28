@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: data2
           persistentVolumeClaim:
-            claimName: data2
+            claimName: s3pvc
       {{- if or .Values.middleManager.antiAffinity .Values.middleManager.nodeAffinity }}
       affinity:
       {{- end }}
@@ -171,12 +171,19 @@ spec:
           storage: "{{ .Values.middleManager.persistence.size }}"
   {{ end }}
 
-  - metadata:
-      name: data2
-    spec:
-      accessModes:
-      - {{ .Values.middleManager.persistence.data2_claim.accessmode }}
-      storageClassName: "{{ .Values.middleManager.persistence.data2_claim.storageclass }}"
-      resources:
-        requests:
-          storage: "{{ .Values.middleManager.persistence.data2_claim.size }}"
+
+  # - metadata:
+  #     name: s3pvc
+  #     # labels: {{ .Values.pvc.label }}: {{ .Values.pvc.selector }}
+  #   spec:
+  #     accessModes:
+  #       - {{ .Values.pvc.accessmode }}
+  #     resources:
+  #       requests:
+  #         storage: {{ .Values.pvc.size }}
+  #     volumeMode: {{ .Values.pvc.volumemode }}
+  #     storageClassName: {{ .Values.pvc.storageclass }}
+  #     # volumeName: {{ .Values.pvc.volumename }}
+  #     selector: 
+  #       matchLabels: 
+  #         {{ .Values.pvc.volumename_label }}: {{ .Values.pvc.volumename_selector }}

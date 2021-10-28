@@ -13,7 +13,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 150Gi
+      storage: 20Gi
   volumeMode: Filesystem
   storageClassName: ibmc-vpc-block-10iops-tier
 ---
@@ -32,6 +32,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 777Gi
+      storage: 20Gi
   volumeMode: Filesystem
   storageClassName: ibmc-vpc-block-10iops-tier
