@@ -11,6 +11,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: http
+    name: {{ .Values.anfisa.name }}
     weight: 100
   wildcardPolicy: None
