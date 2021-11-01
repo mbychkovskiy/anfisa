@@ -170,20 +170,3 @@ spec:
         requests:
           storage: "{{ .Values.middleManager.persistence.size }}"
   {{ end }}
-
-
-  # - metadata:
-  #     name: s3pvc
-  #     # labels: {{ .Values.pvc.label }}: {{ .Values.pvc.selector }}
-  #   spec:
-  #     accessModes:
-  #       - {{ .Values.pvc.accessmode }}
-  #     resources:
-  #       requests:
-  #         storage: {{ .Values.pvc.size }}
-  #     volumeMode: {{ .Values.pvc.volumemode }}
-  #     storageClassName: {{ .Values.pvc.storageclass }}
-  #     # volumeName: {{ .Values.pvc.volumename }}
-  #     selector: 
-  #       matchLabels: 
-  #         {{ .Values.pvc.volumename_label }}: {{ .Values.pvc.volumename_selector }}

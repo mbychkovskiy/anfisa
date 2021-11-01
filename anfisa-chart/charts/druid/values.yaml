@@ -48,15 +48,15 @@ env:
   druid_indexer_fork_property_druid_processing_numThreads: "1"
 
 #persistenceVolumeClaim for druid-components
-pvc:
-  volumename: s3pvc
-  volumename_label: pv
-  volumename_selector: druid
+volumeclaim :
+  # claim: s3pvc ----> #hardcode in PVC
+  bucket: anfisa-druid
+  secret: cos-write-access
+  # access_mode: ReadWriteOnce ----> #hardcode in PVC
+  # size: "1000Gi" #hardcode
+  # storageclass: ibmc-s3fs-standard-regional ----> #hardcode in PVC
 
-  accessmode: ReadWriteMany
-  size: "10Gi"
-  volumemode: Filesystem
-  storageclass: "ibmc-vpc-block-10iops-tier" 
+
 
 router:
   managementProxy:

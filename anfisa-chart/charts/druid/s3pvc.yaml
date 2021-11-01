@@ -1,23 +1,17 @@
-apiVersion: v1
+---
+apiVersion: "v1"
 kind: PersistentVolumeClaim
 metadata:
   name: s3pvc
-  # labels:
-  #   {{ .Values.pvc.label }}: {{ .Values.pvc.selector }}
+  annotations:
+    ibm.io/auto-create-bucket: "true"
+    ibm.io/auto-delete-bucket: "false"
+    ibm.io/bucket: "{{ .Values.volumeclaim.bucket }}"
+    ibm.io/secret-name: "{{ .Values.volumeclaim.secret }}"
 spec:
+  storageClassName: ibmc-s3fs-standard-regional
   accessModes:
-    # - {{ .Values.pvc.accessmode }}
-    - ReadWriteMany
+  - ReadWriteOnce
   resources:
     requests:
-      # storage: {{ .Values.pvc.size }}
-      storage: 15Gi
-  # volumeMode: {{ .Values.pvc.volumemode }}
-  volumeMode: Filesystem
-  storageClassName: ibmc-vpc-block-10iops-tier
-  # storageClassName: {{ .Values.pvc.storageclass }}
-  # volumeName: {{ .Values.pvc.volumename }}
-  selector: 
-    matchLabels:
-      pv: druid
-      # {{ .Values.pvc.volumename_label }}: {{ .Values.pvc.volumename_selector }}
+      storage: "1000Gi"
