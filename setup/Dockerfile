@@ -15,7 +15,7 @@ ENV ANFISA_HTML_APP_BASE=/anfisa/app
 ENV ANFISA_HTML_BASE=/anfisa
 #RUN  ln -sf /proc/1/fd/1 /anfisa/a-setup/logs/anfisa.log
 RUN apt-get update && apt-get install -y nginx
-RUN cd /anfisa/anfisa/setup && mv default.nginx /etc/nginx/conf.d/anfisa.conf && mv supervisord.conf /etc/supervisord.conf && mv uwsgi.ini /anfisa/uwsgi.ini
+RUN cd /anfisa/anfisa/setup && rm /etc/nginx/sites-enabled/default && mv default.nginx /etc/nginx/conf.d/anfisa.conf && mv supervisord.conf /etc/supervisord.conf && mv uwsgi.ini /anfisa/uwsgi.ini
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh", "/usr/local/bin/supervisord"]
 EXPOSE 80
