@@ -192,6 +192,8 @@ Ensure that the following packages are installed on your system:
 
 ***Note:*** *pip3 version should be 3.9 or higher*
 
+Click on the below appropriate tab to install the required packages on Ubuntu or Mac OS.
+
 **<details><summary>Install prerequisites on Ubuntu</summary>**
 <p>
 	
