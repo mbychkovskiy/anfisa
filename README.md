@@ -4,13 +4,13 @@
 
 - [Overview](#overview)
 - [Online Development Documentation](#online-development-documentation)
+- [Public Demo](#public-demo)
 - [Installation](#installation)
   * [Select branch or release:](#select-branch-or-release)
   * [Installation instructions](#installation-instructions)
     + [Installing via Docker](#installing-via-docker)
     + [Installing without Docker](#installing-without-docker)
   * [Ingesting demo whole genome](#ingesting-demo-whole-genome)
-- [Public Demo](#public-demo)
 
 <!-- tocstop -->
 
@@ -31,6 +31,21 @@ https://foromeplatform.github.io/documentation/anfisa-dev.v0.7/
 - User Documentation
 
 https://foromeplatform.github.io/documentation/anfisa-user.v0.7/
+
+## Public Demo 
+
+For a quick introduction, look at a demo of Anfisa based on a high 
+confidence small variants callset v 4.2 created by NIST 
+by integrating results of sequencing, alignment and 
+variant calling from different sources; including 
+both short and long read techniques.  
+
+
+The demo server with REST API and a stable built-in UI 
+is available at: https://api.demo.forome.org/
+
+A novel [React](https://reactjs.org/) Front End is under development
+and a beta version can be previewed at: https://app.demo.forome.org/ 
 
 ##  Installation
 
@@ -166,15 +181,6 @@ change it to any other directory.
 Once installation directory is confirmed, the script 
 will configure Anfisa for your local system.
 
-When the script has finished, it will display 
-the command to start Anfisa server. 
-
-When the system is running you can access 
-the web interface by the url: http://localhost:8190/dir
-
-The port is configurable in your configuration file. Configuration file is located in the selected working directory with the name
-> anfisa_hostname.json
-
 Ensure that the following packages are installed on your system:
    * curl
    * zip 
@@ -184,15 +190,19 @@ Ensure that the following packages are installed on your system:
    * python3-venv
    * MongoDB
 
-   For example, on Ubuntu, the following command can be used:
+***Note:*** *pip3 version should be 3.9 or higher*
+
+**<details><summary>Install prerequisites on Ubuntu</summary>**
+<p>
+	
+1. The following command can be used to install required packages:
    
        sudo apt update && sudo apt install zip unzip python3-dev python3-pip python3-venv curl
     
    > You might need to restart your shell or source .bashrc (or similar) file after the 
    > installation
 
- To install MongoDB follow the [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
-
+   To install MongoDB follow the link [Install MongoDB Community Edition on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
 
 2. [Optionally] Create [virtual environment](https://docs.python.org/3/library/venv.html) 
 and activate it. We will be installing a lot of dependent packages, 
@@ -204,16 +214,67 @@ make sure you have permission to do it. A sample command is:
 
        sudo systemctl status mongod
        
-If its endpoint is not localhost:27017, you will need to edit anfisa.json
+If its endpoint is not localhost:27017, you will need to edit *anfisa.json*.
 
-4. Make sure that sphinx is installed. On Ubuntu the installation command is:
+4. Make sure that sphinx is installed. The installation command is:
 
        sudo apt-get install python3-sphinx
 
-5. Run deploy script (will use pip to install requirements):
+</p>
+</details>
+
+**<details><summary>Install prerequisites on Mac OS</summary>**
+<p>
+	
+1. Install [Homebrew Package Manager](https://brew.sh/), command can be used:
+	
+       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+   Run the following command to install required packages:
+	
+       xcode-select --install
+       brew update
+       brew install curl
+       brew install zip
+       brew install unzip
+
+   To install MongoDB follow the link [Install MongoDB Community Edition on macOS](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/).
+
+2. [Optionally] Create [virtual environment](https://docs.python.org/3/library/venv.html) 
+and activate it. We will be installing a lot of dependent packages, 
+make sure you have permission to do it. A sample command is:
+
+       python3 -m venv .anfisa && source .anfisa/bin/activate
+
+3. Make sure MongoDB is running, use link [Install MongoDB Community Edition on macOS](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
+to verify that MongoDB is running accroding to the choosen running option.
+If its endpoint is not localhost:27017, you will need to edit *anfisa.json*.
+
+4. Make sure that sphinx is installed. The installation command is:
+
+       brew install sphinx-doc
+
+</p>
+</details>
+
+**Install Anfisa**
+
+Run deploy script (will use pip to install requirements):
 
        chmod +x deploy_local.sh
        ./deploy_local.sh
+       
+When the script has finished, it will display 
+the command to start Anfisa server, for example:
+
+`env PYTHONPATH=. python3 app/run.py <Absolute path to the chosen working directory>/anfisa_hostname.json`
+
+When the system is running you can access 
+the web interface by the url: http://localhost:8190/dir
+
+The port is configurable in your configuration file. Configuration file is located in the selected working directory with the name:
+
+`anfisa_hostname.json`
 
 ***
 ###  Ingesting demo whole genome
@@ -232,19 +293,3 @@ Here are sample commands that can be executed:
     docker cp pgp3140_wgs_nist-v4.2.tar.gz anfisa7:/anfisa/a-setup/data/examples/
     docker exec -it anfisa7 sh -c 'cd /anfisa/a-setup/data/examples && tar -zxvf pgp3140_wgs_nist-v4.2.tar.gz'
     docker exec -it anfisa7 sh -c 'PYTHONPATH=/anfisa/anfisa/ python3 -u -m app.storage -c /anfisa/anfisa.json -m create --reportlines 1000 -f -k xl -i /anfisa/a-setup/data/examples/pgp3140_wgs_nist-v4.2/pgp3140_wgs_nist-v4.2.cfg XL_PGP3140_NIST_V42'
-            
-
-## Public Demo 
-
-For a quick introduction, look at a demo of Anfisa based on a high 
-confidence small variants callset v 4.2 created by NIST 
-by integrating results of sequencing, alignment and 
-variant calling from different sources; including 
-both short and long read techniques.  
-
-
-The demo server with REST API and a stable built-in UI 
-is available at: https://api.demo.forome.org/
-
-A novel [React](https://reactjs.org/) Front End is under development
-and a beta version can be previewed at: https://app.demo.forome.org/ 
