@@ -261,17 +261,17 @@ If its endpoint is not localhost:27017, you will need to edit *anfisa.json*.
 
 **Install Anfisa**
 
-Run deploy script (will use pip to install requirements):
+1. Run deploy script (will use pip to install requirements):
 
        chmod +x deploy_local.sh
        ./deploy_local.sh
        
-When the script has finished, it will display 
+2. When the script has finished, it will display 
 the command to start Anfisa server, for example:
 
 `env PYTHONPATH=. python3 app/run.py <Absolute path to the chosen working directory>/anfisa_hostname.json`
 
-When the system is running you can access 
+3. When the system is running you can access 
 the web interface by the url: http://localhost:8190/dir
 
 The port is configurable in your configuration file. Configuration file is located in the selected working directory with the name:
