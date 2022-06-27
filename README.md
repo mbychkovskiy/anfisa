@@ -174,13 +174,6 @@ and [ingest it](#ingesting-demo-whole-genome). Will require around 4 hours
 ***
 #### Installing without Docker
 
-First, the script will ask for an installation directory. 
-By default it would install in the same directory 
-where you have cloned the code, but you can 
-change it to any other directory. 
-Once installation directory is confirmed, the script 
-will configure Anfisa for your local system.
-
 Ensure that the following packages are installed on your system:
    * curl
    * zip 
@@ -260,6 +253,13 @@ If its endpoint is not localhost:27017, you will need to edit *anfisa.json*.
 </details>
 
 **Install Anfisa**
+
+First, the script will ask for an installation directory. 
+By default it would install in the same directory 
+where you have cloned the code, but you can 
+change it to any other directory. 
+Once installation directory is confirmed, the script 
+will configure Anfisa for your local system.
 
 1. Run deploy script (will use pip to install requirements):
 
